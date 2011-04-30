@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+if [ -f ~/.XCompose ]; then
+	echo "You already have a `~/.XCompose`.  Move it out of the way.  You may want to merge it into this project—for that, see the README."
+	exit 1
+fi
+ln -s "$(pwd)/build/dotXCompose" ~/.XCompose
