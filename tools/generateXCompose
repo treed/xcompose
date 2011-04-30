@@ -3,6 +3,7 @@
 import json
 import codecs
 import unicodedata
+import sys
 
 def repeat(s, n):
   o = ""
@@ -42,12 +43,12 @@ def generate(js, prev):
 
 
 
-inf = open("converted.txt", "r")
+inf = open(sys.argv[1], "r")
 inj = json.load(inf)
 
 outs = generate(inj, "<Multi_key> ")
 
-outf = codecs.open("dotXCompose.txt", "w","utf-8")
+outf = codecs.open(sys.argv[2], "w","utf-8")
 
 outf.write(outs)
 
