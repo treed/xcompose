@@ -1,3 +1,18 @@
 body {
     font-family: "Arial";
+    font-size: 16pt;
+    width: 30em;
+    margin: 0 auto 0 auto;
+}
+
+.key-table {
+    width: 100%;
+}
+
+.key-table th {
+    text-align: left;
+}
+
+.key-table th:nth-child(2), .key-table td:nth-child(2) {
+    text-align: right;
 }

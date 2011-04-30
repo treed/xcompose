@@ -4,6 +4,8 @@
   <meta charset='utf-8'>
   <title>xcompose</title>
   <link rel="stylesheet" type="text/css" href="www/main.css" />
+  <link rel="stylesheet" type="text/css" href="www/keyscss/keys.css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   <script type="text/javascript" src="www/show_keybindings.js"></script>
 </head>
 
@@ -20,10 +22,20 @@
     Here be why xcompose is the next Gaga.
   </p>
 
+  <h2>Get it</h2>
+
+  <p>Get it here</p>
+
   <h2>The bindings</h2>
 
-  <div id="bindings">
-    <!-- Filled in by JS from source at www/keybindings.json -->
+  <!-- Filled in by JS from source at www/keybindings.json,
+    and yes, this IS a good use for a table -->
+  <table class="key-table dark-keys">
+    <thead>
+      <tr><th>Press these…</th> <th>…to get this</th></tr>
+    <thead>
+      <tbody id="insert-keys-here">
+      </tbody>	
   </div>
 
 </body>
