@@ -1,3 +1,3 @@
 [submodule "www/keyscss"]
 	path = www/keyscss
-	url = https://github.com/michaelhue/keyscss.git
+	url = git://github.com/michaelhue/keyscss.git
