@@ -2,8 +2,12 @@
 
 # Purpose: parse an XCompose file and output as equivalent JSON.
 # Very hacky one-time script!
+#
+# Usage: ./parseXCompose inxcomposefile outjsonfile
 
-inf = open("dotXCompose", "r")
+import sys
+
+inf = open(sys.argv[1], "r")
 lines = inf.read().splitlines()
 
 def decomment(l):
@@ -72,7 +76,7 @@ for l in relevant:
 
 import codecs
 
-outf = codecs.open("converted.txt", "w")
+outf = codecs.open(sysargv[2], "w")
 
 import json
 json.dump(outj, outf, ensure_ascii = False, sort_keys = True, indent=2)
