@@ -10,33 +10,37 @@
 </head>
 
 <body>
-  <a href="http://github.com/eegg/xcompose">
-    <img style="position: absolute; top: 0; right: 0; border: 0;"
-	 src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-	 alt="Fork me on GitHub" />
-  </a>
+  <div id="masthead-wrapper">
+    <a href="http://github.com/eegg/xcompose">
+      <img style="position: absolute; top: 0; right: 0; border: 0;"
+	   src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+	   alt="Fork me on GitHub" />
+    </a>
 
-  <h1>xcompose</h1>
+    <div id="masthead">
+      <h1><kbd>x</kbd> <kbd>compose</kbd></h1>
 
-  <p>
-    Here be why xcompose is the next Gaga.
-  </p>
-
-  <h2>Get it</h2>
-
-  <p>Get it here</p>
-
-  <h2>The bindings</h2>
-
-  <!-- Filled in by JS from source at www/keybindings.json,
-    and yes, this IS a good use for a table -->
-  <table class="key-table dark-keys">
-    <thead>
-      <tr><th>Press these…</th> <th>…to get this</th></tr>
-    <thead>
-      <tbody id="insert-keys-here">
-      </tbody>	
+      <p>
+	Unicode is big.
+	Your keyboard is small.
+	XCompose gives you memorable keyboard shortcuts to symbols you want to type.
+	We're trying to come up with a broadly acceptable set of keybindings
+	that won't interfere with the traditional Compose bindings,
+	aren't too hard to type,
+	and cover a wide set of characters that are useful to use occasionally,
+	making them available without the need for specialized input methods.
+      </p>
+    </div>
   </div>
 
+  <div id="keybindings">
+    <table class="key-table dark-keys">
+      <tbody id="insert-keys-here">
+	<!-- Filled in by JS from source at www/keybindings.json,
+	     and yes, this IS a good use for a table -->
+      </tbody>
+    </table>
+  </div>
+  
 </body>
 </html>

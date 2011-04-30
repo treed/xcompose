@@ -1,18 +1,56 @@
 body {
     font-family: "Arial";
     font-size: 16pt;
+    margin: 0;
+    padding: 0;
+}
+
+#masthead-wrapper {
+    margin: 0;
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    padding: 1em;
+}
+
+#masthead {
     width: 30em;
+    margin: 0 auto 0 auto;
+}
+
+#keybindings {
+    width: 30em;
+    padding: 1em;
     margin: 0 auto 0 auto;
 }
 
 .key-table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .key-table th {
     text-align: left;
 }
 
-.key-table th:nth-child(2), .key-table td:nth-child(2) {
+.key-table th:nth-child(2),
+.key-table td:nth-child(2) {
     text-align: right;
+}
+
+.key-table td {
+    padding: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+    display: block;
+    font-size: 3em;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
 }
