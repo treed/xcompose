@@ -1,3 +1,5 @@
+This is a fork of the original prject, meant to allow us easily add some fancy unicode 6 glyps to the list. Please note that since most Linux distributions doesn't currently support Unicode 6 glyps you may want to install a snapshot version of DejaVu fonts <http://dejavu.sourceforge.net/snapshots/> into ~/.fonts/.
+
 .XCompose
 =========
 
@@ -12,3 +14,6 @@ broadly acceptable set of keybindings that won't interfere with the
 traditional Compose bindings, aren't too hard to type, and cover a
 wide set of characters that are useful to use occasionally, making
 them available without the need for specialized input methods.
+
+
+
