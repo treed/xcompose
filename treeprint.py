@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import re
+import unicodedata
 
 """
 This program slurps in a .XCompose file on standard input (or several
@@ -21,56 +22,56 @@ etc: this is a case of GIGO.  Deal with it.
 """
 
 def showdict(data, indent):
-    for (key, value) in data.iteritems():
-        print " "*indent + "("+key,
-        if type(value)==dict:
-            print ""
+    for (key, value) in sorted(data.items()):
+        print(" " * indent + "(" + key, end='')
+        if type(value) == dict:
+            print("")
             showdict(value, indent+4)
         else:
-            print "    "+value+")"
-        
+            try:
+                names = ', '.join('U+%04X %s' % (ord(c), unicodedata.name(c))
+                    for c in value)
+            except ValueError:
+                names = 'unknown'
+            print("    %s: %s)" % (value, names))
 
 listing={}
 
-try:
+for line in sys.stdin:
+    # print "((%s))"%line
+    startpos = 0
+    name = []
+    dupsfound = []
     while True:
-        line=sys.stdin.next()
-        # print "((%s))"%line
-        startpos=0
-        name=[]
-        dupsfound=[]
-        while True:
-            m=re.match("\s*<(\w+)>",line[startpos:])
-            if not m:
-                break
-            word=m.group(1)
-            name.append(word)
-            startpos+=m.end()
-        if startpos<=0:
-            continue
-        m=re.match(r'[^"]*"(.+?)"',line)
+        m = re.match("\s*<(\w+)>", line[startpos:])
         if not m:
-            # shouldn't happen, but just in case
-            val='???'
-            print "couldn't make sense of line: "+line
+            break
+        word = m.group(1)
+        name.append(word)
+        startpos += m.end()
+    if startpos <= 0:
+        continue
+    m=re.match(r'[^"]*"(.+?)"', line)
+    if not m:
+        # shouldn't happen, but just in case
+        val='???'
+        print("couldn't make sense of line: " + line)
+    else:
+        val = m.group(1)
+    cur = listing
+    for elt in name[:-1]:
+        if type(cur) == dict:
+            if elt not in cur:
+                cur[elt] = {}
+            cur = cur[elt]        # This will fail for prefix conflicts
         else:
-            val=m.group(1)
-        cur=listing
-        for elt in name[:-1]:
-            if type(cur)==dict:
-                if not cur.has_key(elt):
-                    cur[elt]={}
-                cur=cur[elt]        # This will fail for prefix conflicts
-            else:
-                break           # prefix conflict
-        # Presumably by now we're at the end, pointing to an empty dict.
-        if type(cur)==dict:
-            cur[name[-1]]=val
-        else:
-            # fail.  Prefix conflict.  Let's ignore it.
-            pass
-except StopIteration:
-    print "hit end"
+            break           # prefix conflict
+    # Presumably by now we're at the end, pointing to an empty dict.
+    if type(cur) == dict:
+        cur[name[-1]] = val
+    else:
+        # fail.  Prefix conflict.  Let's ignore it.
+        pass
 
 showdict(listing,0)
 
