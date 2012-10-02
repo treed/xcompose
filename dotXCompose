@@ -465,6 +465,7 @@ include "%L"
 # LOOK OF DISAPPROVAL
 <Multi_key> <ampersand> <d> <i> <s>    : "ಠ_ಠ"  U0CA0     # Uses KANNADA LETTER TTHA
 <Multi_key> <ampersand> <a> <n> <g> <e> <r>    : "ఠ_ఠ"   U0C20  # TELUGU TTHA 
+<Multi_key> <ampersand> <f> <l> <i> <p> : "┌П┐(ಠ_ ಠ┌П┐"  U041F  # Flipoff
 # These last two bother me less, though they can still be improved.
 # Other possibly useful symbols:
 # 2668 HOT SPRINGS (for chat, for running off to shower?)
